@@ -75,19 +75,18 @@
 <!-- End of Header -->
    <div class="wrapper">
       <div class="join">
-         <h1>당신의 MBTI는</h1>
-         
-         <form method="post" action="{% url 'mbtiresultEI' %}">
-            <p>선택된 EI 값: {{ ei_value }}</p>
+         <h3>당신의 MBTI는</h3>
+         <br>
+         <form method="post" action="{% url 'mbtiresult' %}">
+            <h1>{{ ei_value}} {{sn_value}}  {{ft_value}} {{jp_value }}</h1>
         </form>
-
+      
          <br>
          <form method="post" action="{% url 'home' %}">
                 {% csrf_token %}
                 {% include "form_errors.html" %}
                 
-
-
+                
                 <br>
                 <br>
                 <button type="submit" class="btn btn-primary">게시판 구경하러 가기</button>

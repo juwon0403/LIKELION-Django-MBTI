@@ -13,7 +13,13 @@ def mbtitest(request):
     return render(request, 'mbtitest.html')
 
 def mbtiresult(request):
-    return render(request, 'mbtiresult.html')
+    if request.method == 'POST':
+        ei_value = request.POST.get('EI')
+        sn_value = request.POST.get('SN')
+        ft_value = request.POST.get('FT')
+        jp_value = request.POST.get('JP')
+        return render(request, 'mbtiresult.html', {'ei_value': ei_value , 'sn_value': sn_value ,'ft_value': ft_value ,'jp_value': jp_value  })
+    
 
 def new(request):
     return render(request, 'new.html')
@@ -53,9 +59,6 @@ def modelformcreate(request):
 
 
 
-def mbtiresultEI(request):
-    if request.method == 'POST':
-        ei_value = request.POST.get('EI')
-        return render(request, 'result.html', {'ei_value': ei_value})
+
     
 
