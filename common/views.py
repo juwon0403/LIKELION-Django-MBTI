@@ -1,6 +1,7 @@
 from django.contrib.auth import authenticate, login
 from django.shortcuts import render, redirect
-from users.forms import UserForm
+from common.forms import UserForm
+
 
 def signup(request):
     if request.method == "POST":
@@ -9,9 +10,9 @@ def signup(request):
             form.save()
             username = form.cleaned_data.get('username')
             raw_password = form.cleaned_data.get('password1')
-            user = authenticate(username=username, password=raw_password)
-            login(request, user)
+            user = authenticate(username=username, password=raw_password)  # 사용자 인증
+            login(request, user)  # 로그인
             return redirect('index')
     else:
         form = UserForm()
-    return render(request, 'users/signup.html', {'form': form})
+    return render(request, 'common/signup.html', {'form': form})
