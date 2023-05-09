@@ -77,24 +77,22 @@
       <div class="join">
          <h1>MBTI TEST</h1>
          <br>
+         <h3>문제가 생겼을 때 당신의 대처법은?</h3>
+         <br>
          <form method="post" action="{% url 'mbtiresult' %}">
                 {% csrf_token %}
                 {% include "form_errors.html" %}
-                사람들과의 만남에서 에너지를 얻는다.
-                <input type = 'radio' name ='EI' value = 'E'>yes
-                <input type = 'radio' name ='EI' value = 'I'>no
+                <input type = 'radio' name ='EI' value = 'E'> 말이 많아짐
+                <input type = 'radio' name ='EI' value = 'I'> 생각이 많아짐
                 <br>
-                나는 평소에 상상을 많이 하지 않는다.
-                <input type = 'radio' name ='SN' value = 'S'>yes
-                <input type = 'radio' name ='SN' value = 'N'>no
+                <input type = 'radio' name ='SN' value = 'S'> 그냥 그런가 보다
+                <input type = 'radio' name ='SN' value = 'N'> 어떻게 그럴 수 있지
                 <br>
-                나는 슬픈 영화를 볼 때 딱히 눈물을 흘리지 않는다.
-                <input type = 'radio' name ='FT' value = 'F'>yes
-                <input type = 'radio' name ='FT' value = 'T'>no
+                <input type = 'radio' name ='FT' value = 'F'> 이해가 안되는데 공감은 감
+                <input type = 'radio' name ='FT' value = 'T'> 이해가 돼야 공감을 하든 말든
                 <br>
-                나는 매년 다이어리를 꾸준히 쓰는 편이다.
-                <input type = 'radio' name ='JP' value = 'J'>yes
-                <input type = 'radio' name ='JP' value = 'P'>no
+                <input type = 'radio' name ='JP' value = 'J'> 계획부터 세움
+                <input type = 'radio' name ='JP' value = 'P'> 뭐부터 하지?
                 <br>
                 <br>
                 <button type="submit" class="btn btn-primary">테스트 결과 보러가기</button>
