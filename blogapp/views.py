@@ -8,6 +8,12 @@ from .forms import BlogForm, BlogModelForm
 def home(request):
     return render(request, 'index.html')
 
+def mbtitest(request):
+    return render(request, 'mbtitest.html')
+
+def mbtiresult(request):
+    return render(request, 'mbtiresult.html')
+
 def new(request):
     return render(request, 'new.html')
 
