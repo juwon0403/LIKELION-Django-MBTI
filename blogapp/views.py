@@ -53,6 +53,9 @@ def modelformcreate(request):
 
 
 
-
+def mbtiresultEI(request):
+    if request.method == 'POST':
+        ei_value = request.POST.get('EI')
+        return render(request, 'result.html', {'ei_value': ei_value})
     
 

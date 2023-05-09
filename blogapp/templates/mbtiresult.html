@@ -76,7 +76,10 @@
    <div class="wrapper">
       <div class="join">
          <h1>당신의 MBTI는</h1>
-       
+         
+         <form method="post" action="{% url 'mbtiresultEI' %}">
+            <p>선택된 EI 값: {{ ei_value }}</p>
+        </form>
 
          <br>
          <form method="post" action="{% url 'home' %}">
