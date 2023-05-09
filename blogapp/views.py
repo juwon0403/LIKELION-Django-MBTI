@@ -3,6 +3,7 @@ from .models import Blog
 from django.utils import timezone
 from .forms import BlogForm, BlogModelForm
 
+
 # Create your views here.
 
 def home(request):
@@ -49,3 +50,9 @@ def modelformcreate(request):
     else:
         form = BlogModelForm()
     return render(request, 'form_create.html', {'form' : form})
+
+
+
+
+    
+

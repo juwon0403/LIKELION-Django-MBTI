@@ -76,11 +76,15 @@
    <div class="wrapper">
       <div class="join">
          <h1>당신의 MBTI는</h1>
+       
+
          <br>
          <form method="post" action="{% url 'home' %}">
                 {% csrf_token %}
                 {% include "form_errors.html" %}
                 
+
+
                 <br>
                 <br>
                 <button type="submit" class="btn btn-primary">게시판 구경하러 가기</button>
