@@ -19,7 +19,7 @@ def remove(request, pk) :
     if request.method == 'POST' :
         post.delete()
         return redirect('')
-    return render(request, 'posting.html', {'Post' : post})
+    return render(request, 'remove.html', {'Post' : post})
 
 def mbtitest(request):
     return render(request, 'mbtitest.html')
@@ -68,8 +68,6 @@ def modelformcreate(request):
     else:
         form = BlogModelForm()
     return render(request, 'form_create.html', {'form' : form})
-
-
 
 
     
