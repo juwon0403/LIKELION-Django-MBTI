@@ -7,7 +7,19 @@ from .forms import BlogForm, BlogModelForm
 # Create your views here.
 
 def home(request):
-    return render(request, 'index.html')
+    bloglist = Blog.objects.all()
+    return render(request, 'index.html', {'bloglist' : bloglist})
+
+def posting(request, pk) :
+    post = Blog.objects.get(pk = pk)
+    return render(request, 'posting.html', {'post' : post})
+
+def remove(request, pk) :
+    post = Blog.objects.get(pk = pk)
+    if request.method == 'POST' :
+        post.delete()
+        return redirect('')
+    return render(request, 'posting.html', {'Post' : post})
 
 def mbtitest(request):
     return render(request, 'mbtitest.html')

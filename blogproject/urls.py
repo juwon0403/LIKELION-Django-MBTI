@@ -22,6 +22,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name = 'home'),
 
+    path('<int:pk>/', views.posting, name="posting"),
+
     path('new/', views.new, name = 'new'),
     path('create/', views.create, name = 'create'),
 
