@@ -23,6 +23,8 @@ urlpatterns = [
     path('', views.home, name = 'home'),
 
     path('<int:pk>/', views.posting, name="posting"),
+    path('blogapp/<int:pk>/edit/',views.edit, name='edit' ),
+    path('blogapp/<int:pk>/remove/',views.remove, name='remove' ),
 
     path('new/', views.new, name = 'new'),
     path('create/', views.create, name = 'create'),
@@ -37,6 +39,4 @@ urlpatterns = [
 
     path('login/', auth_views.LoginView.as_view(template_name='common/login.html'), name='login'),
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
-
-    path('blogapp/<int:pk>/remove/',views.remove, name='remove' ),
 ]

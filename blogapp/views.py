@@ -14,12 +14,17 @@ def posting(request, pk) :
     post = Blog.objects.get(pk = pk)
     return render(request, 'posting.html', {'post' : post})
 
+def edit(request, pk):
+    edit = Blog.objects.get(pk = pk)
+    return render(request, 'edit.html', {'edit': edit})
+
 def remove(request, pk) :
-    post = Blog.objects.get(pk = pk)
-    if request.method == 'POST' :
+    post = Blog.objects.get(pk=pk)
+    if request.method == 'POST':
         post.delete()
-        return redirect('')
-    return render(request, 'remove.html', {'Post' : post})
+        return redirect('home')
+    return render(request, 'remove.html', {'post' : post})
+
 
 def mbtitest(request):
     return render(request, 'mbtitest.html')

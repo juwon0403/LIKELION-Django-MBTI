@@ -1,14 +1,99 @@
-<!DOCTYPE html>
-<html lang="en">
+{% load static %}
+<!doctype html>
+<html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <title>글 삭제</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <style>
+        * {
+            margin:0;
+        }
+        
+        /* Header */
+            header {
+                display:flex;
+                justify-content:center;
+                align-items:center;
+                padding:10px;
+                height:30px;
+                background-color:rgb(174, 211, 150);
+            }
+            .left-header {
+                flex:1;
+            }
+            .main-header {
+                flex:1;
+                align-items:center;
+                justify-content:center;
+                display:inline-block;
+                text-align:center;
+                color:black;
+            }
+            a, a:link, a:visited {
+                text-decoration:none;
+                color:black;
+            }
+            .right-header {
+                flex:1;
+                float:right;
+                text-align:right;
+            }
+        /* End of Header */
+    
+        /* Content-wrapper */
+            div.content-wrapper {
+                display:contents;
+                float:left;
+                height:2000px;
+            }
+            span {
+                margin:10px;
+                padding:10px;
+            }
+        /* End of Content-wrapper */
+    </style>
+   
+    <title>Hello, mbti!</title>
 </head>
 <body>
-    <form method="POST">
+<!-- Header -->
+<header>
+    <div class="left-header"></div>
+    <div class="main-header"><a href="{% url 'home' %}">MBTI world</a></div>
+    <div class="right-header">
+        {% if user.is_authenticated %}
+        <a class="nav-link" href="{% url 'common:logout' %}">{{ user.username }} (로그아웃)</a>
+        {% endif %}
+</header>
+<!-- End of Header -->
+
+<div class="wrapper">
+    <!-- Content Wrapper -->
+	<div class="content-wrapper" style="margin:10px;">
+        <br>
+        <form method="POST">
         {% csrf_token %}
-        <h3>{{ Post.postname }} - 삭제하기</h3>
-        <button>삭제</button>
-    </form>
+            <table style="border: 1px;">
+                <ul>
+                    <li>제목 : {{post.title}}</li>
+                    <li>내용 : {{post.body}}</li>
+                    <li>작성일시 : {{post.date}}</li>
+                </ul>
+            <br>
+            </table>
+        </form>
+            <form method="POST">
+                {% csrf_token %}
+                정말로 삭제하시겠습니까? <button>yes</button>
+                <button><a href="{% url 'home' %}">no</a></button>
+            </form>
+	</div>
+</div>
+<!-- End of Content Wrapper -->
+{% block content %}
+{% endblock %}
+<!-- 기본 템플릿 안에 삽입될 내용 End -->
 </body>
 </html>
