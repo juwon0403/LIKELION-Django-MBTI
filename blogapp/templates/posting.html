@@ -86,6 +86,13 @@
             <a href="{% url 'home' %}">목록</a>
             <a href="/blogapp/{{post.pk}}/remove">삭제</a>
         </form>
+        <br><br>
+        댓글 달기 : 
+        <form method="POST">
+          {% csrf_token %}
+          <input name="body" type="text" value="">
+          <input class="btn btn-primary" type="submit" value="저장">
+        </form>
 	</div>
 </div>
 <!-- End of Content Wrapper -->
